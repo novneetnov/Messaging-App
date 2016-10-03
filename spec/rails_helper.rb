@@ -5,8 +5,12 @@ abort("The Rails environment is running in production mode!") if Rails.env.produ
 require 'spec_helper'
 require 'rspec/rails'
 require 'capybara/rails'
+require 'shoulda/matchers'
 
 ActiveRecord::Migration.maintain_test_schema!
+
+include Warden::Test::Helpers
+Warden.test_mode!
 
 RSpec.configure do |config|
     config.fixture_path = "#{::Rails.root}/spec/fixtures"
@@ -18,4 +22,12 @@ RSpec.configure do |config|
     config.after(:each) { DatabaseCleaner.clean }
     config.infer_spec_type_from_file_location!
     config.filter_rails_from_backtrace!
+		config.include FactoryGirl::Syntax::Methods
 end 
+
+Shoulda::Matchers.configure do |config|
+  config.integrate do |with|
+    with.test_framework :rspec
+    with.library :rails
+  end
+end
