@@ -2,7 +2,7 @@ class MessagesController < ApplicationController
 	before_action :authenticate_user!
 
 	def index
-		@messages = Recipient.where(user_id: current_user.id).order('created_at DESC')
+		@recipients = Recipient.where(user_id: current_user.id).order('created_at DESC')
 	end
 
 	def new
@@ -22,6 +22,6 @@ class MessagesController < ApplicationController
 
 	private
 	def message_params
-		params.require(:message).permit(:body, :sender_id, user_tokens: [])
+		params.require(:messages).permit(:body, :user_tokens => [])
 	end
 end

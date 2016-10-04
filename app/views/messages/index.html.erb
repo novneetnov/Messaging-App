@@ -1,0 +1,11 @@
+<div class="col-md-6 col-md-offset-3">
+	<ul class="list-group">
+		<% @recipients.each do |recipient| %>
+			<li class="list-group-item">
+				<%= recipient.message.body %>
+				<br>
+				<small>From <%= recipient.message.sender.username %></small>
+			</li>
+		<% end %>
+	</ul>
+</div>
