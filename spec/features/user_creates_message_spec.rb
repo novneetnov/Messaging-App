@@ -8,10 +8,10 @@ feature	'user creates a new message' do
 		visit root_path
 
 		click_on 'New'
-		fill_in 'Message', with: 'Body goes here'
+		fill_in 'messages[body]', with: 'Body goes here'
 		check('user' + user.id.to_s)
 		check('user' + user2.id.to_s)
-		click('submit')
+		click_button('Submit')
 
 		expect(page).to have_content "Message Sent!"
 	end

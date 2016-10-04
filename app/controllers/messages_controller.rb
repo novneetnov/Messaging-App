@@ -14,7 +14,7 @@ class MessagesController < ApplicationController
 		@message = current_user.messages.build(message_params)
 
 		if @message.save
-			redirect_to	root_path, success: "Message Sent!"
+			redirect_to	root_path, notice: "Message Sent!"
 		else
 			render :new, alert: "Great Scott!"
 		end
