@@ -14,9 +14,10 @@ class MessagesController < ApplicationController
 		@message = current_user.messages.build(message_params)
 		@recipients = User.all
 		if @message.save
-			redirect_to	root_path, notice: "Message Sent!"
+			flash[:success] = "Message Sent!"
+			redirect_to	root_path 
 		else
-			flash[alert] = "Great Scott!"
+			flash.now[:error] = "Great Scott!"
 			render :new 
 		end
 	end

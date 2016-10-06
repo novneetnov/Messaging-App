@@ -24,7 +24,6 @@ gem 'refills'
 gem 'normalize-rails'
 gem 'bootstrap-sass', '~> 3.3', '>= 3.3.7'
 
-
 group :development, :test do
   gem 'byebug'
 	gem 'rspec-rails'

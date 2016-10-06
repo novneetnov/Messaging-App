@@ -2,9 +2,9 @@
 	<ul class="list-group">
 		<% @recipients.each do |recipient| %>
 			<li class="list-group-item">
-				<%= recipient.message.body %>
+				<strong>Message Body: </strong><%= recipient.message.body %>
 				<br>
-				<small>From <%= recipient.message.sender.username %></small>
+				<small>From <%= recipient.message.sender.username %> on <%= l recipient.created_at.to_date %></small>
 			</li>
 		<% end %>
 	</ul>
