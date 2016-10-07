@@ -17,11 +17,6 @@ gem 'acts_as_votable'
 gem 'faker'
 
 # design
-gem 'font-awesome-rails'
-gem 'bourbon'
-gem 'neat'
-gem 'refills'
-gem 'normalize-rails'
 gem 'bootstrap-sass', '~> 3.3', '>= 3.3.7'
 
 group :development, :test do
